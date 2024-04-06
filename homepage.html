@@ -116,8 +116,21 @@
 
     <script src="homepage.js"></script>
     <script>
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
+        window.onload = function() {
+            scrollUpSmoothly();
+        };
+
+        function scrollUpSmoothly() {
+            let currentPosition = window.pageYOffset;
+            const scrollStep = Math.ceil(currentPosition / 25);
+
+            const scrollInterval = setInterval(function() {
+                if (window.pageYOffset === 0) {
+                    clearInterval(scrollInterval);
+                } else {
+                    window.scrollBy(0, -scrollStep);
+                }
+            }, 18); // Adjust scroll speed as needed for smoother scrolling
         }
     </script>
 </body>
