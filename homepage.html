@@ -116,10 +116,9 @@
 
     <script src="homepage.js"></script>
     <script>
-        // Scroll to the top of the page when the page is loaded or refreshed
-        window.onload = function() {
+        window.onbeforeunload = function () {
             window.scrollTo(0, 0);
-        };
+        }
     </script>
 </body>
 
